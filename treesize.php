@@ -1,5 +1,4 @@
 <?php
-
     $path = getcwd();
 
     function getDirectorySize($path) {
@@ -31,34 +30,31 @@
 
 ?>
 <!doctype html>
-<html class="no-js" lang="">
+<html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title></title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-
-
-<h1><?php echo htmlentities($path) ?></h1>
-<table class="table table-condensed table-hover">
-    <thead>
-    <tr>
-        <th>Path</th>
-        <th class="text-right">Size</th>
-    </tr>
-    </thead>
-    <?php
-        foreach ( $dirlist as $dir => $size ) { ?>
-            <tr>
-                <td><?php echo htmlentities($dir) ?></td>
-                <td class="text-right"><?php echo number_format($size / 1024) ?> KB</td>
-            </tr>
-        <?php } ?>
-</table>
+<div class="container-fluid">
+	<h1 class="display-4"><?php echo htmlentities($path) ?></h1>
+    <table class="table table-condensed table-hover table-striped">
+        <thead>
+        <tr>
+            <th>Path</th>
+            <th class="text-right">Size</th>
+        </tr>
+        </thead>
+        <?php
+            foreach ( $dirlist as $dir => $size ) { ?>
+                <tr>
+                    <th class="text-monospace"><?php echo htmlentities($dir) ?></th>
+                    <td class="text-right small"><?php echo number_format($size / 1024) ?> KB</td>
+                </tr>
+            <?php } ?>
+    </table>
+</div>
 </body>
 </html>
