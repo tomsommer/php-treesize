@@ -41,7 +41,7 @@
 <body>
 <div class="container-fluid">
   <h1 class="display-4"><?php echo htmlentities($path) ?></h1>
-  <table class="table table-condensed table-hover table-striped">
+  <table class="table table-sm table-hover table-striped">
     <thead>
     <tr>
       <th>Path</th>
