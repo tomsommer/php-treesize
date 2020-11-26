@@ -33,7 +33,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+	<meta name="robots" content="noindex">
+    <title>Treesize: <?php echo htmlentities($path) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -47,13 +48,12 @@
             <th class="text-right">Size</th>
         </tr>
         </thead>
-        <?php
-            foreach ( $dirlist as $dir => $size ) { ?>
-                <tr>
-                    <th class="text-monospace"><?php echo htmlentities($dir) ?></th>
-                    <td class="text-right small"><?php echo number_format($size / 1024) ?> KB</td>
-                </tr>
-            <?php } ?>
+        <?php foreach ( $dirlist as $dir => $size ) { ?>
+          <tr>
+            <th class="text-monospace"><?php echo htmlentities($dir) ?></th>
+            <td class="text-right small text-nowrap"><?php echo number_format($size / 1024, 0, ',', '.') ?> KB</td>
+          </tr>
+        <?php } ?>
     </table>
 </div>
 </body>
